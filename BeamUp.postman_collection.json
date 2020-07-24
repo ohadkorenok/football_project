@@ -1,0 +1,1400 @@
+{
+	"info": {
+		"_postman_id": "bdc3a87c-a513-40b4-96a7-5450c76bf20d",
+		"name": "BeamUp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create_team",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"league_id\":{{league_id}}, \"team_name\":\"Arsenal FC\", \"team_city\":\"London\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/team/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"team",
+						""
+					]
+				},
+				"description": "This request used to create Team. \nNotice that it needs league_id of an existing league. You should get one by using create_league request"
+			},
+			"response": [
+				{
+					"name": "create_team_exists",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"league_id\":\"5f1aaaeec75fab5bff37e0e8\", \"team_name\":\"Manchester United\", \"team_city\":\"Manchester\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/team/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"team",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "TornadoServer/4.2.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Jul 2020 09:37:02 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "103"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"return_code\": -3,\n    \"Message\": \"There is already a team in this name in the system Cannot enter to DB\"\n}"
+				},
+				{
+					"name": "create_team",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"league_id\":\"5f1aaaeec75fab5bff37e0e8\", \"team_name\":\"Manchester United\", \"team_city\":\"Manchester\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/team/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"team",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "TornadoServer/4.2.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Jul 2020 09:35:26 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "165"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"league_id\": \"5f1aaaeec75fab5bff37e0e8\",\n    \"team_name\": \"Manchester United\",\n    \"city\": \"Manchester\",\n    \"goals\": 0,\n    \"wins\": 0,\n    \"_id\": {\n        \"$oid\": \"5f1aab5fc75fab5bff37e0e9\"\n    }\n}"
+				},
+				{
+					"name": "create_team",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"league_id\":\"5f1aaaeec75fab5bff37e0e8\", \"team_name\":\"Arsenal FC\", \"team_city\":\"London\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/team/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"team",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "TornadoServer/4.2.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Jul 2020 09:38:36 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "154"
+						}
+					],
+					"cookie": [],
+					"body": "{\"league_id\": \"5f1aaaeec75fab5bff37e0e8\", \"team_name\": \"Arsenal FC\", \"city\": \"London\", \"goals\": 0, \"wins\": 0, \"_id\": {\"$oid\": \"5f1aac1cc75fab5d0c76dd38\"}}"
+				}
+			]
+		},
+		{
+			"name": "create_match",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"league_id\":{{league_id}}, \"home_team\":\"Arsenal FC\", \"away_team\":\"Manchester United\", \"home_goals\":3, \"away_goals\":1}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/match/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"match",
+						""
+					]
+				},
+				"description": "This request used to create a match. Notice that it needs league_id and team_id of exisiting league and teams. You should get one by using create_league request, and create_team requests."
+			},
+			"response": [
+				{
+					"name": "create_match",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"league_id\":\"5f1aaaeec75fab5bff37e0e8\", \"home_team\":\"Arsenal FC\", \"away_team\":\"Manchester United\", \"home_goals\":3, \"away_goals\":1}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/match/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"match",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "TornadoServer/4.2.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Jul 2020 09:39:02 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "181"
+						}
+					],
+					"cookie": [],
+					"body": "{\"league_id\": \"5f1aaaeec75fab5bff37e0e8\", \"home_team\": \"Arsenal FC\", \"away_team\": \"Manchester United\", \"home_goals\": 3, \"away_goals\": 1, \"_id\": {\"$oid\": \"5f1aac36c75fab5d0c76dd39\"}}"
+				}
+			]
+		},
+		{
+			"name": "create_league",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"league_country\":\"England\", \"league_level\":0, \"league_name\":\"Premier League\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/league/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"league",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create_league",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"league_country\":\"England\", \"league_level\":0, \"league_name\":\"Premier League\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/league/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"league",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "TornadoServer/4.2.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Jul 2020 09:33:34 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "126"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"league_country\": \"England\",\n    \"league_name\": \"Premier League\",\n    \"league_level\": 0,\n    \"_id\": {\n        \"$oid\": \"5f1aaaeec75fab5bff37e0e8\"\n    }\n}"
+				},
+				{
+					"name": "create_league",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"league_country\":\"England\", \"league_level\":0, \"league_name\":\"Premier League\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/league/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"league",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "TornadoServer/4.2.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Jul 2020 09:33:59 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"return_code\": -1,\n    \"Message\": \"League Already exist!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get_league",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/league/{{league_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"league",
+						"{{league_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get_league_not_exist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/league/5f1aaaeec75fab5bff37e0e2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"league",
+								"5f1aaaeec75fab5bff37e0e2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "TornadoServer/4.2.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Jul 2020 09:41:10 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "\"bab5acac5b5f8f035e3e75e2e7e27f4cb3ec1120\""
+						},
+						{
+							"key": "Content-Length",
+							"value": "54"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"return_code\": -2,\n    \"Message\": \"Item does not exist!\"\n}"
+				},
+				{
+					"name": "get_league",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/league/{{league_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"league",
+								"{{league_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "TornadoServer/4.2.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Jul 2020 09:40:41 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "\"57903670d7c5bf732616c5dc788a2b86b859c759\""
+						},
+						{
+							"key": "Content-Length",
+							"value": "126"
+						}
+					],
+					"cookie": [],
+					"body": "{\"_id\": {\"$oid\": \"5f1aaaeec75fab5bff37e0e8\"}, \"league_country\": \"England\", \"league_name\": \"Premier League\", \"league_level\": 0}"
+				}
+			]
+		},
+		{
+			"name": "get_leagues",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/league/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"league",
+						""
+					]
+				},
+				"description": "Get all of the leagues in the DB"
+			},
+			"response": [
+				{
+					"name": "get_leagues",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/league/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"league",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "TornadoServer/4.2.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Jul 2020 09:34:37 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "\"83e6dca5af362468a7c3b5fa0cc8dec58d969703\""
+						},
+						{
+							"key": "Content-Length",
+							"value": "169"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"item_list\": [\n        {\n            \"_id\": {\n                \"$oid\": \"5f1aaaeec75fab5bff37e0e8\"\n            },\n            \"league_country\": \"England\",\n            \"league_name\": \"Premier League\",\n            \"league_level\": 0\n        }\n    ],\n    \"limit\": 50,\n    \"offset\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "get_team",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/team/{{team_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"team",
+						"{{team_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get_team_not_exist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/team/{{team_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"team",
+								"{{team_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "TornadoServer/4.2.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Jul 2020 09:41:27 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "\"540a1a79eff2d7a0649e29198d204398638d0bb0\""
+						},
+						{
+							"key": "Content-Length",
+							"value": "54"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"return_code\": -4,\n    \"Message\": \"Item does not exist!\"\n}"
+				},
+				{
+					"name": "get_team",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/team/{{team_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"team",
+								"{{team_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "TornadoServer/4.2.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Jul 2020 09:42:12 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "\"64af95437f61125118dd1ab6c50dd8612fd5abf6\""
+						},
+						{
+							"key": "Content-Length",
+							"value": "154"
+						}
+					],
+					"cookie": [],
+					"body": "{\"_id\": {\"$oid\": \"5f1aac1cc75fab5d0c76dd38\"}, \"league_id\": \"5f1aaaeec75fab5bff37e0e8\", \"team_name\": \"Arsenal FC\", \"city\": \"London\", \"goals\": 3, \"wins\": 1}"
+				}
+			]
+		},
+		{
+			"name": "get_teams",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/team/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"team",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get_teams",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/team/?offset=0&limit=20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"team",
+								""
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "TornadoServer/4.2.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Jul 2020 09:42:31 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "\"0a7cc367b7c7292122d3a9907e3331c9c24e4e53\""
+						},
+						{
+							"key": "Content-Length",
+							"value": "364"
+						}
+					],
+					"cookie": [],
+					"body": "{\"item_list\": [{\"_id\": {\"$oid\": \"5f1aac1cc75fab5d0c76dd38\"}, \"league_id\": \"5f1aaaeec75fab5bff37e0e8\", \"team_name\": \"Arsenal FC\", \"city\": \"London\", \"goals\": 3, \"wins\": 1}, {\"_id\": {\"$oid\": \"5f1aab5fc75fab5bff37e0e9\"}, \"league_id\": \"5f1aaaeec75fab5bff37e0e8\", \"team_name\": \"Manchester United\", \"city\": \"Manchester\", \"goals\": 1, \"wins\": 0}], \"limit\": 20, \"offset\": 0}"
+				}
+			]
+		},
+		{
+			"name": "get_most_goals",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/most_goals/?least=-1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"most_goals",
+						""
+					],
+					"query": [
+						{
+							"key": "least",
+							"value": "-1"
+						}
+					]
+				},
+				"description": "Get the team with the most goals.\nGets query paaram of least: -1 for most goals and 1 for least goals. \nExample attached."
+			},
+			"response": [
+				{
+					"name": "get_most_goals",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/most_goals/?least=-1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"most_goals",
+								""
+							],
+							"query": [
+								{
+									"key": "least",
+									"value": "-1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "TornadoServer/4.2.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Jul 2020 09:43:20 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "\"64af95437f61125118dd1ab6c50dd8612fd5abf6\""
+						},
+						{
+							"key": "Content-Length",
+							"value": "154"
+						}
+					],
+					"cookie": [],
+					"body": "{\"_id\": {\"$oid\": \"5f1aac1cc75fab5d0c76dd38\"}, \"league_id\": \"5f1aaaeec75fab5bff37e0e8\", \"team_name\": \"Arsenal FC\", \"city\": \"London\", \"goals\": 3, \"wins\": 1}"
+				},
+				{
+					"name": "get_least_goals",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/most_goals/?least=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"most_goals",
+								""
+							],
+							"query": [
+								{
+									"key": "least",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "TornadoServer/4.2.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Jul 2020 09:44:24 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "\"b5774d8d095100e36057b0f1397480a5dc12c9b9\""
+						},
+						{
+							"key": "Content-Length",
+							"value": "165"
+						}
+					],
+					"cookie": [],
+					"body": "{\"_id\": {\"$oid\": \"5f1aab5fc75fab5bff37e0e9\"}, \"league_id\": \"5f1aaaeec75fab5bff37e0e8\", \"team_name\": \"Manchester United\", \"city\": \"Manchester\", \"goals\": 1, \"wins\": 0}"
+				}
+			]
+		},
+		{
+			"name": "get_most_wins",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/most_wins/?least=-1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"most_wins",
+						""
+					],
+					"query": [
+						{
+							"key": "least",
+							"value": "-1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get_most_wins",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/most_wins/?least=-1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"most_wins",
+								""
+							],
+							"query": [
+								{
+									"key": "least",
+									"value": "-1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "TornadoServer/4.2.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Jul 2020 09:44:54 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "\"64af95437f61125118dd1ab6c50dd8612fd5abf6\""
+						},
+						{
+							"key": "Content-Length",
+							"value": "154"
+						}
+					],
+					"cookie": [],
+					"body": "{\"_id\": {\"$oid\": \"5f1aac1cc75fab5d0c76dd38\"}, \"league_id\": \"5f1aaaeec75fab5bff37e0e8\", \"team_name\": \"Arsenal FC\", \"city\": \"London\", \"goals\": 3, \"wins\": 1}"
+				},
+				{
+					"name": "get_least_wins",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/most_wins/?least=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"most_wins",
+								""
+							],
+							"query": [
+								{
+									"key": "least",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "TornadoServer/4.2.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Jul 2020 09:45:08 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "\"b5774d8d095100e36057b0f1397480a5dc12c9b9\""
+						},
+						{
+							"key": "Content-Length",
+							"value": "165"
+						}
+					],
+					"cookie": [],
+					"body": "{\"_id\": {\"$oid\": \"5f1aab5fc75fab5bff37e0e9\"}, \"league_id\": \"5f1aaaeec75fab5bff37e0e8\", \"team_name\": \"Manchester United\", \"city\": \"Manchester\", \"goals\": 1, \"wins\": 0}"
+				}
+			]
+		},
+		{
+			"name": "get_match",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/match/{{match_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"match",
+						"{{match_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get_match",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/match/{{match_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"match",
+								"{{match_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "TornadoServer/4.2.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Jul 2020 09:46:24 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "\"3697e07696cd3f8655300e3fcb02872e3c15d79a\""
+						},
+						{
+							"key": "Content-Length",
+							"value": "181"
+						}
+					],
+					"cookie": [],
+					"body": "{\"_id\": {\"$oid\": \"5f1aac36c75fab5d0c76dd39\"}, \"league_id\": \"5f1aaaeec75fab5bff37e0e8\", \"home_team\": \"Arsenal FC\", \"away_team\": \"Manchester United\", \"home_goals\": 3, \"away_goals\": 1}"
+				}
+			]
+		},
+		{
+			"name": "get_matches",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/match/?offset=0&limit=20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"match",
+						""
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get_matches",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/match/?offset=0&limit=20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"match",
+								""
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "TornadoServer/4.2.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 24 Jul 2020 09:45:46 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "\"1cbd610a1a7de341437b411d2f51f2cbf76433a1\""
+						},
+						{
+							"key": "Content-Length",
+							"value": "224"
+						}
+					],
+					"cookie": [],
+					"body": "{\"item_list\": [{\"_id\": {\"$oid\": \"5f1aac36c75fab5d0c76dd39\"}, \"league_id\": \"5f1aaaeec75fab5bff37e0e8\", \"home_team\": \"Arsenal FC\", \"away_team\": \"Manchester United\", \"home_goals\": 3, \"away_goals\": 1}], \"limit\": 20, \"offset\": 0}"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}
