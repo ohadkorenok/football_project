@@ -1,2 +1,2 @@
-Tornado==4.2.1
+Tornado==6.3.2
 pymongo==3.0.3
